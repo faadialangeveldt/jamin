@@ -1,0 +1,767 @@
+/* Default Css */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+body {
+  background-color: #102c57;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
+}
+
+/* Custom Variables */
+
+:root {
+  --primary: #322c2b;
+  --secondary: white;
+  --main-bg-color: rgb(151, 8, 8);
+  --alternative: #102c57;
+  --mainBoxShadow: #f932a8;
+  --awesome: pink;
+  --borderColor: rgb(0, 130, 74);
+  --elementShadow: 0.2vw 0.3vw 0.2vw #ffebb2;
+  --mainBg: gold;
+  --bgImg: linear-gradient(to right, var(--awesome), var(--mainBg));
+}
+
+/* Allows you to use animations */
+
+@property --top-left {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --top-right {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --bottom-left {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --bottom-right {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+/*Nav-bar & Footer*/
+
+:is(.navbar, footer) {
+  background-color: var(--alternative);
+  width: 100%;
+}
+
+/*Nav-Bar*/
+
+:is(.nav-link, footer) {
+  color: var(--secondary);
+}
+
+img[alt="logo"] {
+  width: 5rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  border: solid 3px var(--primary);
+  border-radius: 20px;
+}
+
+:is(a, .nav-link) {
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--mainBg);
+  }
+}
+
+/* Grid Layout */
+
+:is(body) {
+  text-align: center;
+}
+
+/*Create three rows*/
+:is(body) {
+  grid-template-rows: auto minmax(1fr, 100dvh) auto; /*Dynamic viewport height*/
+}
+
+section {
+  scroll-margin-block: 5rem;
+}
+
+/*Home Section*/
+
+.special-para {
+  color: var(--secondary);
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  margin: 1rem 20rem;
+  padding-left: 10rem;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    font-weight: bolder;
+    color: #2c4e80;
+  }
+}
+
+.italianno {
+  font-family: "Italianno", cursive;
+  font-weight: 200;
+  font-style: normal;
+  display: flex;
+  font-size: 6rem;
+  margin: 10rem 15rem 2rem 25rem;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    font-weight: bolder;
+    color: #2c4e80;
+  }
+}
+
+.homeContainer {
+  background-image: url(https://joshua-langeveldt.github.io/images/images/Randoms/scenary.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  opacity: 1;
+}
+
+img[alt="jam"] {
+  height: 18rem;
+  width: 15rem;
+  border-radius: 200px;
+  margin: 13rem 9rem;
+  border: 3px solid #a5a9afad;
+  margin-right: -10rem;
+  margin-left: 16rem;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.textAlign {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*ANIMATION*/
+
+.anime {
+  display: inline-block;
+  font-family: "arial";
+  font-size: 6rem;
+}
+
+.typed {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 10.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--mainBg);
+  }
+}
+
+/* About Styling */
+
+.about-page {
+  color: var(--secondary);
+  margin: 3rem 2rem 0 3rem;
+  font-family: "Jockey One", sans-serif;
+  font-weight: 300;
+  padding: 5px;
+  height: 100px;
+  width: 40%;
+  font-size: 1.5rem;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--mainBg);
+  }
+}
+
+/* flipCard Styling*/
+
+img[alt="flipCard"] {
+  border-radius: 50px;
+  border: 3px solid #ffebb2;
+  width: 300px;
+  height: 300px;
+}
+
+/* The flip card container - (remove perspective if you don't want the 3D effect) */
+.flip-card {
+  background-color: transparent;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  left: 65%;
+  top: 63rem;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip  */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 50px;
+}
+
+/* Style the front side */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*Work&Education**/
+/*These effect the paragraphs*/
+.cust-work {
+  display: inline;
+  margin-left: -3rem;
+  color: var(--secondary);
+  font-family: "Jockey One", sans-serif;
+  font-size: 1.5rem;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--mainBg);
+  }
+}
+
+/*These effect the heading 3s*/
+.custom-work {
+  font-family: "Jockey One", sans-serif;
+  font-size: 2rem;
+  margin-left: 5rem;
+  padding-top: 1rem;
+  color: var(--mainBg);
+}
+
+/*This effects the h2*/
+.custom {
+  font-family: "Italianno", cursive;
+  font-size: 5rem;
+  margin-top: 17rem;
+  margin-bottom: 3rem;
+
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--mainBg);
+  }
+}
+
+.textAlignment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -4rem;
+  margin-top: 4rem;
+}
+
+.standalone {
+  margin-left: -31rem;
+}
+
+/*Button Styling*/
+
+.btn {
+  border: 3px solid var(--secondary);
+  margin-top: 3rem;
+  margin-left: 1rem;
+  color: var(--alternative);
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--alternative);
+    border: 3px solid #ffebb2;
+  }
+}
+
+.cust-link {
+  color: #102c57;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--secondary);
+  }
+}
+
+/* Skills Styling */
+
+.ontainercay {
+  max-width: 960px;
+  margin: 0 auto;
+}
+h2 {
+  color: var(--secondary);
+  margin-top: 50px;
+  text-align: center;
+  font-size: 2em;
+}
+
+/*Card Styles*/
+
+.card-styling {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  margin-top: 5rem;
+  width: 50%;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--alternative);
+  }
+}
+
+#card-style1 {
+  margin-left: -18rem;
+}
+
+#card-style2 {
+  margin-right: -18rem;
+}
+
+#card-style3 {
+  margin-left: -18rem;
+}
+
+#card-style4 {
+  margin-right: -18rem;
+}
+
+#card-style5 {
+  margin-top: 5rem;
+}
+
+.card1 {
+  width: 500px;
+  height: 280px;
+  border: 3px solid var(--mainBg);
+  border-radius: 30px;
+  box-shadow: 0.3vw 0.3vw 0.3vw var(--mainBg), 0.6vw 1vw 0.2vw var(--secondary);
+}
+
+.card2 {
+  width: 950px;
+  height: 250px;
+  border: 3px solid var(--mainBg);
+  border-radius: 30px;
+  box-shadow: 0.3vw 0.3vw 0.3vw var(--mainBg), 0.6vw 1vw 0.2vw var(--secondary);
+}
+
+.card-body {
+  padding: 20px;
+}
+.card-title {
+  font-size: 1.5em;
+  color: var(--secondary);
+  font-family: "Jockey One", sans-serif;
+}
+.card-subtitle {
+  font-size: 1em;
+  color: var(--secondary);
+  font-family: "Jockey One", sans-serif;
+}
+.card-text {
+  color: var(--secondary);
+  font-size: 1rem;
+  font-family: "Jockey One", sans-serif;
+  width: 100%;
+  padding-left: 0px;
+  margin-left: 0%;
+
+  &:hover {
+    color: var(--mainBg);
+  }
+}
+
+/*Testimonial Styling*/
+
+.card-deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+  width: 50%;
+
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: var(--alternative);
+  }
+}
+
+.ardcay {
+  width: 500px;
+  height: 350px;
+  border: 3px solid var(--mainBg);
+  border-radius: 30px;
+  box-shadow: 0.3vw 0.3vw 0.3vw var(--mainBg), 0.6vw 1vw 0.2vw var(--secondary);
+  margin-left: 23rem;
+}
+
+.ardcay-body {
+  padding: 20px;
+}
+
+.ardcay-title {
+  font-size: 1.5em;
+  color: var(--secondary);
+  font-family: "Jockey One", sans-serif;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.ardcay-text {
+  color: var(--secondary);
+  font-size: 1rem;
+  font-family: "Jockey One", sans-serif;
+  width: 100%;
+  text-align: center;
+  padding-left: 0px;
+  margin-left: 0%;
+}
+
+#ardcay-style1 {
+  margin-left: -18rem;
+}
+
+#ardcay-style2 {
+  margin-left: -18rem;
+}
+
+#ardcay-style3 {
+  margin-left: -18rem;
+}
+
+#ardcay-style4 {
+  margin-left: -18rem;
+}
+
+#ardcay-style5 {
+  margin-left: -18rem;
+}
+
+/*Testimonial-Image*/
+
+img[alt="Image1"] {
+  height: 70px;
+  width: 70px;
+  border-radius: 20px;
+  border: 2px solid #ffebb2;
+
+  &:hover {
+    transform: scale(1.2);
+    height: 100px;
+    width: 100px;
+    margin: 8px;
+  }
+}
+
+/*Projects Section Styling*/
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1.1rem;
+  width: 30%;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.hover-text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  visibility: hidden;
+  transition: visibility 0.2s;
+}
+
+.image-container:hover .hover-text {
+  visibility: visible;
+  font-size: large;
+}
+
+img[alt="proImg-1"] {
+  height: 200px;
+  width: 350px;
+  border-radius: 20px;
+  border: 2px solid var(--secondary);
+}
+
+.exttay {
+  display: flex;
+  justify-content: center;
+  color: var(--secondary);
+  width: 100%;
+  margin-left: 5rem;
+  padding-top: 1rem;
+}
+
+.heading-exttay {
+  display: flex;
+  justify-content: center;
+  color: var(--secondary);
+  width: 100%;
+  margin-left: 5rem;
+  padding-top: 1rem;
+}
+
+.cust-heading-exttay {
+  color: var(--mainBg);
+  margin-top: -3rem;
+}
+
+/* Contact Section */
+
+.contactContainer {
+  padding: 60px 0;
+  background: var(--alternative);
+}
+
+.containing {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Form Styles */
+
+form {
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--mainBg);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.p-5 {
+  background-color: var(--alternative);
+  padding: 2rem;
+}
+
+.text-cust {
+  color: var(--secondary);
+  margin: 10px;
+  font-family: "Jockey One", sans-serif;
+  font-size: 1rem;
+}
+
+/* Footer styling */
+.footerContainer {
+  background-color: var(--alternative);
+  padding: 20px;
+  font-family: "Jockey One", sans-serif;
+  font-size: 1.2rem;
+}
+
+/* About me section */
+.footerContainer .about-me {
+  float: left;
+  width: 20%;
+}
+
+/* Features section */
+.footerContainer .features {
+  float: left;
+  width: 20%;
+}
+
+/* Follow me section */
+.footerContainer .follow-me {
+  float: left;
+  width: 20%;
+}
+
+/* Email me section */
+.footerContainer .email-me {
+  float: right;
+  width: 10%;
+}
+
+.subcription-form {
+  background-color: var(--alternative);
+}
+
+/* Email input field */
+.footerContainer .email-input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+/* Send button */
+.footerContainer .send-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.footerContainer .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Copyright notice */
+.footerContainer .copyright {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+/*icons*/
+.nav-links {
+  color: var(--secondary);
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .footerContainer {
+    padding: 30px 0;
+  }
+
+  .containing {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card-styling {
+    width: 100%;
+  }
+
+  .row {
+    display: inline;
+  }
+
+  #card-style1,
+  #card-style3 {
+    margin-left: 0;
+  }
+
+  .special-para,
+  .italianno {
+    margin: 0;
+  }
+
+  img[alt="jam"] {
+    margin-left: 0;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+}
